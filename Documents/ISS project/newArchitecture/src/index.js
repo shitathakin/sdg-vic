@@ -58,7 +58,7 @@ var baseMaps = [
       }),
       
       
-      new ol.layer.TIle({
+      new ol.layer.Tile({
         source: new ol.source.XYZ({
           url: "https://{1-4}.basemaps.cartocdn.com/rastertiles/voyager_labels_under/{z}/{x}/{y}{scale}.png"
         }),
