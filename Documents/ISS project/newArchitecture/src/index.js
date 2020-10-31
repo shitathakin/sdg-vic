@@ -65,14 +65,14 @@ var baseMaps = [
         visible: false,
         title: 'CartoDB'
       }),
-      new ol.layer.TIle({
+      new ol.layer.Tile({
         source: new ol.source.XYZ({
           url: "//services.arcgisonline.com/ArcGIS/rest/services/World_Imagery/MapServer/tile/{z}/{y}/{x}"
         }),
         visible: false,
         title: 'arcgis'
       }),
-      new ol.layer.TIle({
+      new ol.layer.Tile({
         source: new ol.source.OSM({
           url: 'https://{a-c}.tile.openstreetmap.fr/hot/{z}/{x}/{y}.png'
         }),
