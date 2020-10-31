@@ -107,15 +107,15 @@ var map = new ol.Map({
  * 
  * handle base layers 
  */
-// for (var bl of baseMaps) {
-//     console.log(bl.values_.title);
-//     map.addLayer(bl)
-// var option = document.createElement("option");
-//   option.setAttribute("value", bl.values_.title);
-//   option.setAttribute("title", bl.values_.title);
-//   option.innerHTML = bl.values_.title;
-//   document.getElementById('baseLayerList').appendChild(option);
-// }
+for (var bl of baseMaps) {
+    console.log(bl.values_.title);
+    map.addLayer(bl)
+var option = document.createElement("option");
+  option.setAttribute("value", bl.values_.title);
+  option.setAttribute("title", bl.values_.title);
+  option.innerHTML = bl.values_.title;
+  document.getElementById('baseLayerList').appendChild(option);
+}
 
 /**
  * 
