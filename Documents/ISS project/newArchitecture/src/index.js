@@ -1,54 +1,54 @@
 //var d3 = require("d3");
 
-// var vectorLayers = [
-//     {
-//         url: '/geodata/foodInsecurity.json',
-//         name: 'sdg2',
-//         analysisProperty: "perc_population_food_insecurity"
-//     },
-//     {
-//         url: '/geodata/childrenSchool2018.json',
-//         name: 'sdg4',
-//         analysisProperty: "chld_enrld_prescl_prog_5_yr_olds_enrld_prescl_prescl_prog_num"
-//     },
-//     {
-//         url: '/geodata/childrenSchool2013.json',
-//         name: 'sdg4-13',
-//         analysisProperty: "chld_enrld_prescl_prog_5_yr_olds_enrld_prescl_prescl_prog_num"
-//     },
-//     {
-//         url: '/geodata/childrenSchool2015.json',
-//         name: 'sdg4-15',
-//         analysisProperty: "chld_enrld_prescl_prog_5_yr_olds_enrld_prescl_prescl_prog_num"
-//     },
-//     {
-//         url: '/geodata/homicide2019.json',
-//         name: 'sdg16',
-//         analysisProperty: "a10_homicide_and_related_offences"
-//     },
-//     {
-//         url: '/geodata/homicide2015.json',
-//         name: 'sdg16-15',
-//         year: '2015',
-//         analysisProperty: "a10_homicide_and_related_offences"
-//     },
-//     {
-//         url: '/geodata/homicide2013.json',
-//         name: 'sdg16-13',
-//         year: '2013',
-//         analysisProperty: "a10_homicide_and_related_offences"
-//     },
-//     {
-//         url: '/geodata/women_in_parliament.json',
-//         name: 'sdg5',
-//         analysisProperty: "%_of_women_councillors_in_local_parliament"
-//     },
-//     {
-//         url: '/geodata/medianHouseholdIncome.json',
-//         name: 'sdg1',
-//         analysisProperty: "med_hhd_inc_wk_tot"
-//     }
-// ]
+var vectorLayers = [
+    {
+        url: '/geodata/foodInsecurity.json',
+        name: 'sdg2',
+        analysisProperty: "perc_population_food_insecurity"
+    },
+    {
+        url: '/geodata/childrenSchool2018.json',
+        name: 'sdg4',
+        analysisProperty: "chld_enrld_prescl_prog_5_yr_olds_enrld_prescl_prescl_prog_num"
+    },
+    {
+        url: '/geodata/childrenSchool2013.json',
+        name: 'sdg4-13',
+        analysisProperty: "chld_enrld_prescl_prog_5_yr_olds_enrld_prescl_prescl_prog_num"
+    },
+    {
+        url: '/geodata/childrenSchool2015.json',
+        name: 'sdg4-15',
+        analysisProperty: "chld_enrld_prescl_prog_5_yr_olds_enrld_prescl_prescl_prog_num"
+    },
+    {
+        url: '/geodata/homicide2019.json',
+        name: 'sdg16',
+        analysisProperty: "a10_homicide_and_related_offences"
+    },
+    {
+        url: '/geodata/homicide2015.json',
+        name: 'sdg16-15',
+        year: '2015',
+        analysisProperty: "a10_homicide_and_related_offences"
+    },
+    {
+        url: '/geodata/homicide2013.json',
+        name: 'sdg16-13',
+        year: '2013',
+        analysisProperty: "a10_homicide_and_related_offences"
+    },
+    {
+        url: '/geodata/women_in_parliament.json',
+        name: 'sdg5',
+        analysisProperty: "%_of_women_councillors_in_local_parliament"
+    },
+    {
+        url: '/geodata/medianHouseholdIncome.json',
+        name: 'sdg1',
+        analysisProperty: "med_hhd_inc_wk_tot"
+    }
+]
 var baseMaps = [
     new ol.layer.Tile({
         source: new ol.source.OSM({
@@ -115,15 +115,15 @@ var map = new ol.Map({
  * 
  * handle base layers 
  */
-for (var bl of baseMaps) {
-    console.log(bl.values_.title);
-    map.addLayer(bl)
-var option = document.createElement("option");
-  option.setAttribute("value", bl.values_.title);
-  option.setAttribute("title", bl.values_.title);
-  option.innerHTML = bl.values_.title;
-  document.getElementById('baseLayerList').appendChild(option);
-}
+// for (var bl of baseMaps) {
+//     console.log(bl.values_.title);
+//     map.addLayer(bl)
+// var option = document.createElement("option");
+//   option.setAttribute("value", bl.values_.title);
+//   option.setAttribute("title", bl.values_.title);
+//   option.innerHTML = bl.values_.title;
+//   document.getElementById('baseLayerList').appendChild(option);
+// }
 
 /**
  * 
@@ -152,22 +152,22 @@ function generateStyleFunction(vl) {
 }
 
 var vecLayers = [];
-for (let vl of vectorLayers) {
+// for (let vl of vectorLayers) {
 
-    let newVecLayer = new ol.layer.Vector({
-        visible: false,
-        title: vl.name,
-        year: vl.year,
-        source: new ol.source.Vector({
-            format: new ol.format.GeoJSON(),
-            url: vl.url
-        }),
-        style: generateStyleFunction(vl)
-    })
-    map.addLayer(newVecLayer);
-    vecLayers.push(newVecLayer);
+//     let newVecLayer = new ol.layer.Vector({
+//         visible: false,
+//         title: vl.name,
+//         year: vl.year,
+//         source: new ol.source.Vector({
+//             format: new ol.format.GeoJSON(),
+//             url: vl.url
+//         }),
+//         style: generateStyleFunction(vl)
+//     })
+//     map.addLayer(newVecLayer);
+//     vecLayers.push(newVecLayer);
 
-}
+// }
 
 layerSwitcher(vecLayers, vectorLayers);
 yearLayerSwitcher(vecLayers, vectorLayers);
