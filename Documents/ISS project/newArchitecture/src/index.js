@@ -55,7 +55,7 @@ var baseMaps = [
           url: 'https://a.tile.openstreetmap.org/{z}/{x}/{y}.png',
     
         }),
-        visible: false,
+        visible: true,
         title: 'OSM'
       }),
       
@@ -95,15 +95,7 @@ var map = new ol.Map({
         rotate: false
     }),
     target: 'map-container',
-    layers: [
-        new ol.layer.Tile({
-            source: new ol.source.XYZ({
-                url: 'http://tile.stamen.com/terrain/{z}/{x}/{y}.jpg'
-            }),
-            visible: true,
-        }),
-
-    ],
+    
     view: new ol.View({
         center: [15618836.6863,-4368529.0406],
         zoom: 6,
