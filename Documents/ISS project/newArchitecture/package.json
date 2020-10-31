@@ -21,6 +21,7 @@
     "ol": "^6.4.3"
   },
   "devDependencies": {
+    "@babel/preset-env": "^7.12.1",
     "express": "^4.17.1",
     "ol": "^6.4.3"
   }
