@@ -87,7 +87,7 @@ var baseMaps = [
  */
 
 var map = new ol.Map({
-    controls: defaultControls({
+    controls: ol.control.defaults({
         attribution: false,
         zoom: false,
         rotate: false
