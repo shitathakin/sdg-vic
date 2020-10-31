@@ -1,0 +1,226 @@
+body {
+    background: #e3e3e3;
+    opacity: 1;
+    
+  }
+  
+  .my-row {
+    height: 100px;
+    text-align: center;
+    
+  }
+  
+  .my-col {
+    text-align: center;
+    
+  }
+  
+  #aboutUsCard {
+    max-height: 150px;
+    overflow-y: auto;
+  }
+  
+  .main-container {
+    padding-top: 5%;
+    
+  }
+  
+  .my-jumbo {
+    border: black;
+    color: goldenrod;
+  }
+  
+  #map-container {
+    height: 430px;
+    width: 80%;
+    border: 2px solid grey;
+    position: absolute;
+    top: 16%;
+    left: 18%;
+  }
+  
+  .sidebarr {
+    height: 430px;
+    border: 2px solid grey;
+    top: 16%;
+    position: absolute;
+    width: 18.4%;
+    text-align: center;
+    overflow: hidden;
+    
+  }
+  
+  .results-barr {
+    height: 430px;
+    border: 2px solid grey;
+    top: 16%;
+    position: absolute;
+    width: 25%;
+    text-align: center;
+    right: 1px;
+    
+  
+  }
+  
+  select {
+    top: auto;
+    max-width: 170px;
+    width: 170px;
+  }
+  
+  .my-container {
+    border: black;
+    width: 30px;
+  }
+  
+  .button-row {
+    text-align: center;
+  }
+  
+  /* .my-container {
+      
+  } */
+  
+  .map-button {
+    color: greenyellow;
+    background-color: green;
+  }
+  
+  .pcontainer {
+    content: ' ';
+    display: block;
+    position: absolute;
+    left: 0;
+    top: 0;
+    width: 100%;
+    height: 100%;
+    z-index: 1;
+    opacity: 0.2;
+    background-image: url('https://www.metsagroup.com/en/Sustainability/PublishingImages/UN-SDG-Mets%C3%A4-Group.jpg?RenditionID=15');
+    background-repeat: no-repeat;
+    background-position: 50% 0;
+    -ms-background-size: cover;
+    -o-background-size: cover;
+    -moz-background-size: cover;
+    -webkit-background-size: cover;
+    background-size: cover;
+    z-index: -1;
+  }
+  
+  .card-bod {
+    height: 150px;
+  }
+  
+  .imageRow {
+    display: flex;
+    flex-wrap: wrap;
+    padding: 0 4px;
+  }
+  
+  /* Create two equal columns that sits next to each other */
+  
+  .imageCol {
+    flex: 80%;
+    padding: 0 3px;
+  }
+  
+  .imageCol img {
+    margin-top: 8px;
+    vertical-align: middle;
+  }
+  
+  .tooltip {
+    position: relative;
+    display: inline-block;
+    border-bottom: 1px dotted black;
+  }
+  
+  .tooltip .tooltiptext {
+    visibility: hidden;
+    width: 120px;
+    background-color: black;
+    color: #fff;
+    text-align: center;
+    border-radius: 6px;
+    padding: 5px 0;
+    /* Position the tooltip */
+    position: absolute;
+    z-index: 1;
+  }
+  
+  .tooltip:hover .tooltiptext {
+    visibility: visible;
+  }
+  
+  .overlay-container {
+    background-color: #555;
+    width: 150px;
+    color: #fff;
+    text-align: center;
+    border-radius: 1px;
+    padding: 2px 0;
+    position: fixed;
+    bottom: 10%;
+    left: 25%;
+    margin-left: -80px;
+  }
+  
+  .overlay-container #feature-additional-info::after {
+    content: "";
+    position: absolute;
+    top: 100%;
+    left: 50%;
+    margin-left: -10px;
+    border-width: 10px;
+    border-style: solid;
+    border-color: #555 transparent transparent transparent;
+  }
+  
+  ul.my-list-group {
+    position: relative;
+    display: flex;
+    flex-flow: column;
+    align-items: stretch;
+    height: 430px;
+  }
+  
+  li.list-group-item.bottom-li {
+    
+    /* 1 and it will fill whole space left if no flex value are set to other children*/
+    flex: 1;
+    /* 1 and it will fill whole space left if no flex value are set to other children*/
+    overflow: auto;
+  }
+  
+  .fixed-body {
+    position: absolute;
+    background-color: transparent;
+    padding-bottom: 5px;
+  }
+  
+  ul.breadcrumb {
+    width: 400px;
+    background-color: transparent;
+  }
+  
+  #results-list {
+    max-height: 180px;
+    overflow-x: hidden;
+    overflow-y: auto;
+  }
+  
+  #results-list li  {
+    background: rgb(204, 204, 204);
+    list-style-type: none;
+    border: 1px solid black;
+    
+  }
+  
+  .bar {
+    fill: steelblue;
+  }
+  
+  
+  
+  
+  

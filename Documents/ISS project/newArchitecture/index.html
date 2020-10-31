@@ -1,21 +1,206 @@
 <!doctype html>
 <html lang="en">
-  <head>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css" type="text/css">
-    <style>
-      .map {
-        height: 400px;
-        width: 100%;
-      }
-    </style>
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet"
+        href="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/css/ol.css" type="text/css">
     <script src="https://cdn.jsdelivr.net/gh/openlayers/openlayers.github.io@master/en/v6.4.3/build/ol.js"></script>
-    <title>OpenLayers example</title>
-  </head>
-  <body>
-    <h2>My Map</h2>
-    <div id="map" class="map"></div>
-    <script src='/src/index.js'>
-      
-    </script>
-  </body>
+    <link rel="stylesheet" href="./styles.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+        integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+    <title>SDG Webmapping Tool</title>
+
+    <script src='./headerjs.js'></script>
+</head>
+
+<body id='body'>
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-light bg-success">
+            <a class="navbar-brand" href="#">CSDILA's SDG Research GROUP</a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+                aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"> Home <span class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" href="#"> About <span
+                                class="sr-only">(current)</span></a>
+                    </li>
+                    <li class="nav-item active">
+                        <a class="nav-link" href="#"> Map <span class="sr-only">(current)</span></a>
+                    </li>
+
+
+
+                </ul>
+
+            </div>
+        </nav>
+    </header>
+    <div class="pcontainer"></div>
+
+
+
+    <div class="viewport">
+        <div class="sidebarr" id='sidebarr'>
+            <ul class="list-group my-list-group d-flex">
+                <li class="list-group-item list-group-item-dark">Control Panel</li>
+                <li class="list-group-item list-group-item-primary" id="SDG">SDG <br>
+
+
+                    <div class="category_div" id="category_div">
+                        <select name="category" class="required-entry" id="mySelect"
+                            onchange="javascript: dynamicdropdown(this.options[this.selectedIndex].value);">
+                            <option value="">Select SDG...</option>
+                            <option value="sdg1">Goal 1: No poverty</option>
+                            <option value="sdg2">Goal 2: No Hunger</option>
+                            <option value="sdg3">Goal 3: Health and Well-Being</option>
+                            <option value="sdg4">Goal 4: Quality Education</option>
+                            <option value="sdg5">Goal 5: Gender Equality</option>
+                            <option value="sdg16">Goal 16: Strong Institutions</option>
+                        </select>
+                    </div>
+                </li>
+                <li class="list-group-item list-group-item-dark"></li>
+                <li class="list-group-item list-group-item-danger" id="indicator">Indicator <br>
+
+
+                    <div class="sub_category_div" id="sub_category_div">
+                        <script type="text/javascript" language="JavaScript">
+                            document.write('<select name="subcategory" id="subcategory"><option value="">Select Indicator...</option></select>')
+                        </script>
+                        <noscript>
+                            <select name="subcategory" id="subcategory">
+                                <option value=""></option>
+                            </select>
+                        </noscript>
+                    </div>
+
+                </li>
+
+                <li class="list-group-item list-group-item-dark"></li>
+
+                <li class="list-group-item list-group-item-success" id="year">year <br>
+                    <div class="sub_category_div" id="sub_category_div">
+                        <script type="text/javascript" language="JavaScript">
+                            document.write('<select name="subcategory2" id="subcategory2"><option value="">Select Year...</option></select>')
+                        </script>
+                        <noscript>
+                            <select name="subcategory2" id="subcategory2">
+                                <option value=""></option>
+                            </select>
+                        </noscript>
+                    </div>
+                </li>
+
+                <li class="list-group-item list-group-item-dark"></li>
+
+                <li class="list-group-item list-group-item-warning" id="year">Base Map<br>
+                <select name="Base map" id="baseLayerList">
+                    
+                </select>
+                </li>
+
+
+
+                <!-- <li class="list-group-item list-group-item-dark"></li> -->
+                <!-- <li class="list-group-item list-group-item-success" id="selectYear">Year <br>
+                    <select name="category" class="required-entry"
+                        onchange="javascript: dropdown(this.options[this.selectedIndex].value);">
+                        <option value="2020">2020</option>
+                        <option value="2013">2013</option>
+                        <option value="2015">2015</option>
+                        <option value="2018">2018</option>
+                        <option value="2019">2019</option>
+                        <option value="2020">2020</option>
+                    </select>
+                </li> -->
+
+                <li class="list-group-item list-group-item-dark bottom-li"></li>
+
+
+            </ul>
+        </div>
+
+        <div id="map-container"></div>
+
+        <div class='results-barr' id='arb'>
+            <ul class="list-group my-list-group d-flex">
+                <li class="list-group-item list-group-item-dark">Results Panel</li>
+                <li class="list-group-item list-group-item-primary" id="results-section" style="min-height: 63px;"></li>
+                <li class="list-group-item list-group-item-dark"></li>
+                <li class="list-group-item list-group-item-danger " id="year">
+                    <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#exampleModal">
+                        See Graph
+                    </button>
+                </li>
+                <li class="list-group-item list-group-item-dark bottom-li"></li>
+            </ul>
+        </div>
+
+    </div>
+
+
+
+    <div class="fixed-body">
+        <ul class="breadcrumb">
+            <li class="active" id='sdgbc'>SDG<span class="divider">/</span>
+
+            </li>
+            <li id='ibc'>Indicator<span class="divider">/</span>
+
+            </li>
+            <li id='ybc'>2020
+            </li>
+        </ul>
+    </div>
+
+    <div class="modal fade modz" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel"
+        aria-hidden="true">
+        <div class="modal-dialog modal-lg" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"></h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                        <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+                <div class="modal-body" id='modal-body'>
+                    <svg id='svg' height='800px' width='900px'></svg>
+                </div>
+
+            </div>
+        </div>
+    </div>
+
+
+
+
+
+    <div class="overlay-container">
+        <label for="feature-name"> LGA: <span class='overlay-text' id='feature-name'></span> </label><br>
+        <label for="feature-name" id='lbl'> </label> <span class='overlay-text' id='feature-additional-info'></span><br>
+        <label for="feature-name"> LGA code: <span class='overlay-text' id='feature-code'></span></label><br>
+    </div>
+    <script src='/src/index.js'></script>
+
+    
+</body>
+
 </html>
