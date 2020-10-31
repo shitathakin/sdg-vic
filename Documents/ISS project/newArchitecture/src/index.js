@@ -144,22 +144,22 @@ function generateStyleFunction(vl) {
 }
 
 var vecLayers = [];
-// for (let vl of vectorLayers) {
+for (let vl of vectorLayers) {
 
-//     let newVecLayer = new ol.layer.Vector({
-//         visible: false,
-//         title: vl.name,
-//         year: vl.year,
-//         source: new ol.source.Vector({
-//             format: new ol.format.GeoJSON(),
-//             url: vl.url
-//         }),
-//         style: generateStyleFunction(vl)
-//     })
-//     map.addLayer(newVecLayer);
-//     vecLayers.push(newVecLayer);
+    let newVecLayer = new ol.layer.Vector({
+        visible: false,
+        title: vl.name,
+        year: vl.year,
+        source: new ol.source.Vector({
+            format: new ol.format.GeoJSON(),
+            url: vl.url
+        }),
+        style: generateStyleFunction(vl)
+    })
+    map.addLayer(newVecLayer);
+    vecLayers.push(newVecLayer);
 
-// }
+}
 
 layerSwitcher(vecLayers, vectorLayers);
 yearLayerSwitcher(vecLayers, vectorLayers);
