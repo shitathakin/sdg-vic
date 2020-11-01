@@ -333,7 +333,7 @@ var select = new ol.interaction.Select({
 });
 var clickSelected = null;
 if (select !== null) {
-    map.addInteraction(select);
+    //map.addInteraction(select);
     map.on('select', function (e) {
 
         document.getElementById('status').innerHTML =
