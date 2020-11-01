@@ -328,7 +328,7 @@ map.on('pointermove', function (e) {
 });
 
 var select = new ol.interaction.Select({
-    condition: ol.events.condition.singleClick,
+    condition: ol.events.condition.click,
     style: highlightStyle2
 });
 var clickSelected = null;
